@@ -46,7 +46,7 @@ CREATE TABLE sightings (
     sighting_id SERIAL PRIMARY KEY,
     ranger_id INT,
     species_id INT,
-    sighting_time DATE,
+    sighting_time TIMESTAMP,
     location TEXT ,
     notes TEXT,
     FOREIGN KEY (ranger_id) REFERENCES rangers(ranger_id),
@@ -106,3 +106,17 @@ SELECT rangers.name , count(sightings.ranger_id) FROM rangers JOIN sightings ON 
 -- --------------- Problem 5 --------------- --
 -- List species that have never been sighted.
 SELECT species.common_name FROM species LEFT JOIN sightings ON species.species_id = sightings.species_id WHERE sightings.species_id IS NULL; 
+
+
+
+
+-- --------------- Problem 6 --------------- --
+--  Show the most recent 2 sightings.
+SELECT * FROM sightings ORDER BY sighting_time DESC LIMIT 2
+
+
+
+-- --------------- Problem 7 --------------- --
+--  Update all species discovered before year 1800 to have status 'Historic'.
+UPDATE species SET conservation_status = 'Historic' WHERE EXTRACT(YEAR FROM  discovery_date) < 1800;
+
