@@ -101,3 +101,8 @@ SELECT * FROM sightings WHERE "location" LIKE '%Pass%';
 -- List each ranger's name and their total number of sightings.
 SELECT rangers.name , count(sightings.ranger_id) FROM rangers JOIN sightings ON sightings.ranger_id = rangers.ranger_id GROUP BY rangers.ranger_id ORDER BY rangers.name ASC;
 
+
+
+-- --------------- Problem 5 --------------- --
+-- List species that have never been sighted.
+SELECT species.common_name FROM species LEFT JOIN sightings ON species.species_id = sightings.species_id WHERE sightings.species_id IS NULL; 
