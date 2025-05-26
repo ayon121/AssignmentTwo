@@ -64,7 +64,6 @@ In PostgreSQL, data types are used to define the kind of data a column can store
 VARCHAR stores text up to a specified length. But CHAR always stores exactly n characters.VARCHAR only stores what is inputed. Where CHAR stores full length with spaces.<br>
 Example:
 </p><br>
-<br>
 <code>
 CREATE TABLE test (
     name_v VARCHAR(5),
@@ -76,4 +75,26 @@ INSERT INTO test (name_v, name_c) VALUES ('abc', 'abc');
 </code>
 <br>
 <p>Both VARCHAR and CHAR is very useful data types. But In most cases, VARCHAR is the best choice.</p>
+<hr>
+
+
+
+
+<h1>Question Four : How can you modify data using UPDATE statements?</h1>
+<p>
+In PostgreSQL UPDATE statement is used in SQL to modify existing data in a table. It is most important statement for database management. There are many ways to use UPDATE statement.<br>
+There is a way to use UPDATE statement : 
+</p>
+<code>
+    UPDATE students
+    SET email = 'newemail@example.com'
+    WHERE student_id = 1;
+</code>
+<p>We can also multiple values of a table at a time</p>
+<code>
+    UPDATE students
+    SET name = 'Ayon', email = 'ayon@example.com'
+    WHERE student_id = 2;
+</code>
+<p>UPDATE is most useful statement. But we have to use it carefully. Always use a WHERE clause to avoid updating all rows.</p>
 <hr>
