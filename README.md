@@ -8,6 +8,10 @@ IT is a versatile and powerful database management system suitable for various a
 </p>
 <hr>
 <br>
+
+
+
+
 <h1>Question Two : Explain the Primary Key and Foreign Key concepts in PostgreSQL?</h1>
 <p>
 PostgreSQL is most popular ORDBMS in the present world. It is used almost in every industry for data management. In postgreSQL key is the most important role for data management.Keys are used to ensure data integrity, uniqueness, and relationships between tables. <br>
@@ -51,3 +55,25 @@ grade TEXT
 <br>
 <p>To maintain database keys are the most important part. Clear knowledge about keys is very important for understanding PostgreSQL</p>
 <br>
+<hr>
+
+
+<h1>Question Three : What is the difference between the VARCHAR and CHAR data types?</h1>
+<p>
+In PostgreSQL, data types are used to define the kind of data a column can store. There are many data type in PostgreSQL. VARCHAR and CHAR are used for character type data.But there is difference between them. <br>
+VARCHAR stores text up to a specified length. But CHAR always stores exactly n characters.VARCHAR only stores what is inputed. Where CHAR stores full length with spaces.<br>
+Example:
+</p><br>
+<br>
+<code>
+CREATE TABLE test (
+    name_v VARCHAR(5),
+    name_c CHAR(5)
+);
+
+INSERT INTO test (name_v, name_c) VALUES ('abc', 'abc');
+
+</code>
+<br>
+<p>Both VARCHAR and CHAR is very useful data types. But In most cases, VARCHAR is the best choice.</p>
+<hr>
