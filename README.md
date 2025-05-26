@@ -59,11 +59,18 @@ Foreign Key দুটি টেবিলের মধ্যে সম্পর�
 <hr>
 
 
+
+
+
+
+
+
+
 <h1>Question Three : What is the difference between the VARCHAR and CHAR data types?</h1>
 <p>
-In PostgreSQL, data types are used to define the kind of data a column can store. There are many data type in PostgreSQL. VARCHAR and CHAR are used for character type data.But there is difference between them. <br>
-VARCHAR stores text up to a specified length. But CHAR always stores exactly n characters.VARCHAR only stores what is inputed. Where CHAR stores full length with spaces.<br>
-Example:
+PostgreSQL-এ ডেটা টাইপ ব্যবহার করা হয় একটি কলামে কী ধরনের ডেটা সংরক্ষণ করা যাবে তা নির্ধারণ করার জন্য। PostgreSQL-এ অনেক ধরনের ডেটা টাইপ রয়েছে। VARCHAR এবং CHAR চরিত্রধর্মী ডেটা সংরক্ষণের জন্য ব্যবহৃত হয়। তবে এই দুইটির মধ্যে পার্থক্য রয়েছে। <br>
+VARCHAR নির্দিষ্ট একটি দৈর্ঘ্যের মধ্যে টেক্সট সংরক্ষণ করে। কিন্তু CHAR সর্বদা নির্দিষ্ট n সংখ্যক অক্ষর সংরক্ষণ করে। VARCHAR শুধুমাত্র যতটুকু ইনপুট দেওয়া হয়েছে ততটুকু সংরক্ষণ করে, অন্যদিকে CHAR পূর্ণ দৈর্ঘ্য সংরক্ষণ করে, বাকি অংশ ফাঁকা জায়গা (spaces) দ্বারা পূরণ করে।<br>
+উদাহরণ:
 </p><br>
 <code>
 CREATE TABLE test (
@@ -72,45 +79,55 @@ CREATE TABLE test (
 );
 
 INSERT INTO test (name_v, name_c) VALUES ('abc', 'abc');
-
 </code>
 <br>
-<p>Both VARCHAR and CHAR is very useful data types. But In most cases, VARCHAR is the best choice.</p>
+<p>
+VARCHAR এবং CHAR উভয়ই খুবই গুরুত্বপূর্ণ ডেটা টাইপ। তবে বেশিরভাগ ক্ষেত্রে VARCHAR ব্যবহার করাই ভালো।
+</p>
 <hr>
+
+
 
 
 
 
 <h1>Question Four : How can you modify data using UPDATE statements?</h1>
 <p>
-In PostgreSQL UPDATE statement is used in SQL to modify existing data in a table. It is most important statement for database management. There are many ways to use UPDATE statement.<br>
-There is a way to use UPDATE statement : 
+PostgreSQL-এ `UPDATE` স্টেটমেন্টটি একটি টেবিলের বিদ্যমান ডেটা পরিবর্তনের জন্য ব্যবহৃত হয়। এটি ডেটাবেস ম্যানেজমেন্টের জন্য অত্যন্ত গুরুত্বপূর্ণ একটি স্টেটমেন্ট। `UPDATE` স্টেটমেন্ট ব্যবহারের বিভিন্ন পদ্ধতি রয়েছে। <br>
+নিচে `UPDATE` স্টেটমেন্ট ব্যবহারের একটি উপায় দেখানো হলো :
 </p>
 <code>
     UPDATE students
     SET email = 'newemail@example.com'
     WHERE student_id = 1;
 </code>
-<p>We can also multiple values of a table at a time</p>
+<p>
+আমরা চাইলে একটি টেবিলের একাধিক মান একসাথে আপডেট করতে পারি।
+</p>
 <code>
     UPDATE students
     SET name = 'Ayon', email = 'ayon@example.com'
     WHERE student_id = 2;
 </code>
-<p>UPDATE is most useful statement. But we have to use it carefully. Always use a WHERE clause to avoid updating all rows.</p>
+<p>
+`UPDATE` একটি অত্যন্ত প্রয়োজনীয় স্টেটমেন্ট। তবে এটি খুব সতর্কতার সাথে ব্যবহার করতে হবে। সব সময় `WHERE` ক্লজ ব্যবহার করা উচিত যাতে ভুলবশত সব রো আপডেট না হয়ে যায়।
+</p>
 <hr>
 
 
 <h1>Question Five : What are the LIMIT and OFFSET clauses used for?</h1>
 <p>
-The LIMIT and OFFSET clauses in PostgreSQL are used to control how many rows are returned by a query and where to start from in the result set. These two are most important statements for database query. <br>
+PostgreSQL-এ `LIMIT` এবং `OFFSET` ক্লজ ব্যবহার করা হয় কতগুলো রো (row) রিটার্ন করা হবে এবং কোন পয়েন্ট থেকে রিটার্ন শুরু হবে তা নির্ধারণ করতে। এই দুটি স্টেটমেন্ট ডেটাবেস কুয়েরির জন্য খুবই গুরুত্বপূর্ণ। <br>
 
-LIMIT is used to specify the maximum number of rows to return. OFFSET is used to skip a specified number of rows before starting to return rows. LIMIT and OFFSET can be used to paginate results, improving usability and performance.LIMIT also can be used for data sampling and performance optimization.
-Example :
+`LIMIT` ব্যবহার করা হয় নির্দিষ্ট সংখ্যক রো রিটার্ন করতে। `OFFSET` ব্যবহার করা হয় নির্দিষ্ট সংখ্যক রো বাদ দিয়ে পরবর্তী রো গুলো রিটার্ন করতে। `LIMIT` এবং `OFFSET` সাধারণত রেজাল্ট প্যাজিনেশনের (pagination) জন্য ব্যবহার করা হয়, যা ব্যবহারযোগ্যতা এবং পারফরম্যান্স উন্নত করে। `LIMIT` অনেক সময় ডেটা স্যাম্পলিং বা পারফরম্যান্স অপটিমাইজেশনের জন্যও ব্যবহৃত হয়।
+উদাহরণ :
 </p>
 <code>
     SELECT * FROM students
     ORDER BY student_id
     LIMIT 5 OFFSET 5;
 </code>
-<p>In a word, LIMIT and OFFSET are used when you want to retrieve only a few records from your result of query</p>
+<p>
+এক কথায়, যখন আপনি আপনার কুয়েরির রেজাল্ট থেকে নির্দিষ্ট কিছু রেকর্ড রিটার্ন করতে চান তখন `LIMIT` এবং `OFFSET` ব্যবহার করা হয়।
+</p>
+<hr>
