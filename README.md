@@ -24,10 +24,10 @@ Example :
 </p>
 <br>
 <code>
-    CREATE TABLE students (
-        student_id SERIAL PRIMARY KEY,
-        name TEXT
-    );
+CREATE TABLE students (
+student_id SERIAL PRIMARY KEY,
+name TEXT
+);
 </code>
 <br>
 <br>
@@ -39,11 +39,11 @@ Example :
 </p>
 <br>
 <code>
-    CREATE TABLE grades (
-    grade_id SERIAL PRIMARY KEY,
-    student_id INT REFERENCES students(student_id),
-    grade TEXT
-    );
+CREATE TABLE grades (
+grade_id SERIAL PRIMARY KEY,
+student_id INT REFERENCES students(student_id),
+grade TEXT
+);
 </code>
 <br>
 <p>To maintain database keys are the most important part. Clear knowledge about keys is very important for understanding PostgreSQL</p>
