@@ -117,20 +117,32 @@ SELECT * FROM species;
 
 SELECT * FROM sightings;
 
+
+
+
 -- --------------- Problem 1 --------------- --
 -- Register a new ranger with provided data with name = 'Derek Fox' and region = 'Coastal Plains'
 INSERT INTO
     rangers (name, region)
 VALUES ('Derek Fox', 'Coastal Plains');
 
+
+
+
 -- --------------- Problem 2 --------------- --
 -- Count unique species ever sighted
 SELECT count(DISTINCT species_id) AS unique_species_count
 FROM sightings;
 
+
+
+
 -- --------------- Problem 3 --------------- --
 -- Find all sightings where the location includes "Pass".
 SELECT * FROM sightings WHERE "location" LIKE '%Pass%';
+
+
+
 
 -- --------------- Problem 4 --------------- --
 -- List each ranger's name and their total number of sightings.
@@ -141,6 +153,9 @@ GROUP BY
     rangers.ranger_id
 ORDER BY rangers.name ASC;
 
+
+
+
 -- --------------- Problem 5 --------------- --
 -- List species that have never been sighted.
 SELECT species.common_name
@@ -149,9 +164,17 @@ FROM species
 WHERE
     sightings.species_id IS NULL;
 
+
+
+
+
 -- --------------- Problem 6 --------------- --
 --  Show the most recent 2 sightings.
 SELECT * FROM sightings ORDER BY sighting_time DESC LIMIT 2
+
+
+
+
 
 -- --------------- Problem 7 --------------- --
 --  Update all species discovered before year 1800 to have status 'Historic'.
@@ -163,6 +186,9 @@ WHERE
         YEAR
         FROM discovery_date
     ) < 1800;
+
+
+
 
 -- --------------- Problem 8 --------------- --
 -- Label each sighting's time of day as 'Morning', 'Afternoon', or 'Evening'.
@@ -189,4 +215,16 @@ FROM sightings
 
 
 
+
+-- --------------- Problem 9 --------------- --
+-- Delete rangers who have never sighted any species
+DELETE FROM rangers
+WHERE
+    ranger_id IN (
+        SELECT rangers.ranger_id
+        FROM rangers
+            LEFT JOIN sightings ON rangers.ranger_id = sightings.ranger_id
+        WHERE
+            sightings.ranger_id IS NULL
+    );
 
