@@ -23,6 +23,7 @@ Primary Key uniquely identifies each row in a table. It ensures no duplicate rec
 Example : 
 </p>
 <br>
+<br>
 <code>
 CREATE TABLE students (
 student_id SERIAL PRIMARY KEY,
@@ -38,13 +39,15 @@ Foreign key creates a relationship between two tables. It ensures referential in
 Example : 
 </p>
 <br>
-```sql
+<br>
+<code>
 CREATE TABLE grades (
 grade_id SERIAL PRIMARY KEY,
 student_id INT REFERENCES students(student_id),
 grade TEXT
 );
-
+</code>
+<br>
 <br>
 <p>To maintain database keys are the most important part. Clear knowledge about keys is very important for understanding PostgreSQL</p>
 <br>
