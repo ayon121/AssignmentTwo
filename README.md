@@ -38,13 +38,13 @@ Foreign key creates a relationship between two tables. It ensures referential in
 Example : 
 </p>
 <br>
-<code>
+```sql
 CREATE TABLE grades (
 grade_id SERIAL PRIMARY KEY,
 student_id INT REFERENCES students(student_id),
 grade TEXT
 );
-</code>
+
 <br>
 <p>To maintain database keys are the most important part. Clear knowledge about keys is very important for understanding PostgreSQL</p>
 <br>
