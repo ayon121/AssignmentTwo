@@ -98,3 +98,18 @@ There is a way to use UPDATE statement :
 </code>
 <p>UPDATE is most useful statement. But we have to use it carefully. Always use a WHERE clause to avoid updating all rows.</p>
 <hr>
+
+
+<h1>Question Five : What are the LIMIT and OFFSET clauses used for?</h1>
+<p>
+The LIMIT and OFFSET clauses in PostgreSQL are used to control how many rows are returned by a query and where to start from in the result set. These two are most important statements for database query. <br>
+
+LIMIT is used to specify the maximum number of rows to return. OFFSET is used to skip a specified number of rows before starting to return rows. LIMIT and OFFSET can be used to paginate results, improving usability and performance.LIMIT also can be used for data sampling and performance optimization.
+Example :
+</p>
+<code>
+    SELECT * FROM students
+    ORDER BY student_id
+    LIMIT 5 OFFSET 5;
+</code>
+<p>In a word, LIMIT and OFFSET are used when you want to retrieve only a few records from your result of query</p>
