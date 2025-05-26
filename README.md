@@ -1,10 +1,10 @@
 <h1>Question One : What is PostgreSQL?</h1>
 <p>
-PostgresSQL is a powerfull object-relational database management system. It is open source and most popular ORDBMS. It is combined with many features that safely store and scale the most complicated data workloads. <br>
+PostgreSQL একটি শক্তিশালী অবজেক্ট-রিলেশনাল ডেটাবেস ম্যানেজমেন্ট সিস্টেম। এটি ওপেন সোর্স এবং সবচেয়ে জনপ্রিয় ORDBMS (Object-Relational Database Management System) গুলোর একটি। এটি জটিল ডেটা নিরাপদে সংরক্ষণ এবং স্কেল করতে সহায়তা করে। <br>
 
-PostgreSQL is designed for enterprise-level performance. Most of the cases it easy to learn PostgreSQL. Expertise in databases is certainly not needed to understand PostgreSQL. Basically it is a software that lets developers read, write, and modify the relational database. Most Beautiful thing about PostgreSQL is it supports both relational (SQL) and non-relational (JSON) . <br>
+PostgreSQL ডিজাইন করা হয়েছে এন্টারপ্রাইজ-লেভেলের পারফরম্যান্সের জন্য। বেশিরভাগ ক্ষেত্রেই PostgreSQL শেখা সহজ। PostgreSQL বোঝার জন্য গভীর ডেটাবেজ জ্ঞান প্রয়োজন হয় না। মূলত এটি এমন একটি সফটওয়্যার যা ডেভেলপারদের রিলেশনাল ডেটাবেজ পড়তে, লিখতে এবং পরিবর্তন করতে সহায়তা করে। PostgreSQL-এর সবচেয়ে সুন্দর দিক হলো এটি রিলেশনাল (SQL) এবং নন-রিলেশনাল (JSON) উভয়কেই সমর্থন করে। <br>
 
-IT is a versatile and powerful database management system suitable for various applications due to its open-source nature, extensibility, and strong features. It also offers robust security features, including SSL encryption, authentication mechanisms, and fine-grained access controls. It can handle large datasets and concurrent users efficiently, making it suitable for applications with high traffic or fluctuating data processing needs. 
+এটি একটি শক্তিশালী ডেটাবেজ ম্যানেজমেন্ট সিস্টেম যা বিভিন্ন অ্যাপ্লিকেশনের জন্য উপযুক্ত, কারণ এটি ওপেন সোর্স, সম্প্রসারনযোগ্য এবং শক্তিশালী বৈশিষ্ট্যসমূহ রয়েছে। এটি শক্তিশালী সিকিউরিটি ফিচার সরবরাহ করে, যেমন SSL এনক্রিপশন, অথেন্টিকেশন মেকানিজম এবং সূক্ষ্মভাবে নিয়ন্ত্রিত এক্সেস কন্ট্রোল। এটি বড় ডেটাসেট এবং একসাথে অনেক ব্যবহারকারী দক্ষতার সাথে পরিচালনা করতে পারে, যার ফলে এটি হাই-ট্রাফিক বা পরিবর্তনশীল ডেটা প্রসেসিং প্রয়োজন এমন অ্যাপ্লিকেশনগুলোর জন্য আদর্শ।
 </p>
 <hr>
 <br>
@@ -14,46 +14,47 @@ IT is a versatile and powerful database management system suitable for various a
 
 <h1>Question Two : Explain the Primary Key and Foreign Key concepts in PostgreSQL?</h1>
 <p>
-PostgreSQL is most popular ORDBMS in the present world. It is used almost in every industry for data management. In postgreSQL key is the most important role for data management.Keys are used to ensure data integrity, uniqueness, and relationships between tables. <br>
+PostgreSQL বর্তমানে বিশ্বের সবচেয়ে জনপ্রিয় ORDBMS (Object-Relational Database Management System)। এটি প্রায় প্রতিটি শিল্পেই ডেটা ব্যবস্থাপনার জন্য ব্যবহৃত হয়। PostgreSQL-এ "Key" ডেটা ব্যবস্থাপনায় সবচেয়ে গুরুত্বপূর্ণ ভূমিকা পালন করে। Keys ব্যবহৃত হয় ডেটার স্বতন্ত্রতা এবং টেবিলগুলোর মধ্যে সম্পর্ক নিশ্চিত করার জন্য। <br>
 
-Primary Key and Foreign Key are the most common keys that are used in PostgreSQL. Here’s a breakdown of Primary Key and Foreign Key. <br></p>
-
-
+Primary Key এবং Foreign Key হলো PostgreSQL-এ ব্যবহৃত সবচেয়ে সাধারণ এবং গুরুত্বপূর্ণ keys। নিচে Primary Key এবং Foreign Key-এর ব্যাখ্যা দেওয়া হলো। <br>
+</p>
 
 <h5>Primary Key</h5><br>
 <p>
-Primary Key uniquely identifies each row in a table. It ensures no duplicate records. It helps the database index and retrieve data efficiently. Primary key can be a single column or a group of columns. <br>
+Primary Key প্রতিটি সারিকে (row) টেবিলের মধ্যে ইউনিক (অদ্বিতীয়ভাবে) চিহ্নিত করে। এটি নিশ্চিত করে যে কোনো ডুপ্লিকেট রেকর্ড থাকবে না। এটি ডেটাবেজকে ইনডেক্স এবং ডেটা দ্রুত পুনরুদ্ধার করতে সাহায্য করে। Primary Key একক কলাম বা কলামের সমষ্টি হতে পারে। <br>
 
-Example : 
+উদাহরণ :
 </p>
 <br>
 <br>
 <code>
-CREATE TABLE students (
-student_id SERIAL PRIMARY KEY,
-name TEXT
-);
+    CREATE TABLE students (
+    student_id SERIAL PRIMARY KEY,
+    name TEXT
+    );
 </code>
 <br>
 <br>
 <h5>Foreign Key</h5><br>
 <p>
-Foreign key creates a relationship between two tables. It ensures referential integrity. It is a column or a group of columns in one table that references the primary key of another table. It is the most important key to maintain relation between tables and databases <br>
+Foreign Key দুটি টেবিলের মধ্যে সম্পর্ক তৈরি করে। এটি রেফারেনশিয়াল ইন্টিগ্রিটি নিশ্চিত করে। এটি এমন একটি কলাম বা কলামের সমষ্টি যা অন্য একটি টেবিলের Primary Key কে রেফারেন্স করে। এটি টেবিল এবং ডেটাবেজগুলোর মধ্যে সম্পর্ক বজায় রাখার জন্য সবচেয়ে গুরুত্বপূর্ণ key। <br>
 
-Example : 
+উদাহরণ :
 </p>
 <br>
 <br>
 <code>
-CREATE TABLE grades (
-grade_id SERIAL PRIMARY KEY,
-student_id INT REFERENCES students(student_id),
-grade TEXT
-);
+    CREATE TABLE grades (
+    grade_id SERIAL PRIMARY KEY,
+    student_id INT REFERENCES students(student_id),
+    grade TEXT
+    );
 </code>
 <br>
 <br>
-<p>To maintain database keys are the most important part. Clear knowledge about keys is very important for understanding PostgreSQL</p>
+<p>
+ডেটাবেজ পরিচালনায় Keys সবচেয়ে গুরুত্বপূর্ণ অংশ। PostgreSQL বুঝতে হলে Keys সম্পর্কে পরিষ্কার ধারণা থাকা অত্যন্ত জরুরি।
+</p>
 <br>
 <hr>
 
